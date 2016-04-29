@@ -45,7 +45,7 @@ public class StanfordBunny extends JFrame implements GLEventListener{
 	 */
 	public StanfordBunny() throws IOException {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 450);
+		setBounds(100, 100, 300, 300);
 		setResizable(false);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
