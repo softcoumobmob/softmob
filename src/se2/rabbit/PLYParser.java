@@ -2,8 +2,13 @@ package se2.rabbit;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,18 +26,21 @@ public class PLYParser {
 	private static final String REGEX_VERTEX = "(?i)^vertex$";
 	private static final String REGEX_FACE = "(?i)^face$";	
 	
-	private File file;
-	public PLYParser(File file){
-		this.file = file;
+	private InputStream in;
+	public PLYParser(File file) throws FileNotFoundException{
+		in = new FileInputStream(file);
+	}
+	public PLYParser(URL url) throws IOException{
+		in = url.openStream();
 	}
 	
 	public List<TriangleFace> read() throws IOException{
 		List<TriangleFace> faces = new ArrayList<TriangleFace>();
-		BufferedReader in = new BufferedReader(new FileReader(file));
+		BufferedReader br = new BufferedReader(new InputStreamReader(in));
 		String line;
 		int vertexNum = 0;
-		int faceNum = 0;		
-		while((line = in.readLine()) != null){
+		int faceNum = 0;
+		while((line = br.readLine()) != null){
 			String[] args = line.split("\\s");
 			if(args[0].matches(REGEX_END_HEADER)){ break; }
 			if(args[0].matches(REGEX_ELEMENT)){
@@ -48,7 +56,7 @@ public class PLYParser {
 		}
 		ArrayList<Vertex3D> vertexs = new ArrayList<Vertex3D>();
 		for(int i = 0; i < vertexNum; i++){
-			line = in.readLine();
+			line = br.readLine();
 			String[] args = line.split("\\s");
 			float x = Float.parseFloat(args[0]);
 			float y = Float.parseFloat(args[1]);
@@ -56,19 +64,19 @@ public class PLYParser {
 			vertexs.add(new Vertex3D(x,y,z));
 		}
 		for(int i = 0; i < faceNum; i++){
-			line = in.readLine();
+			line = br.readLine();
 			String[] args = line.split("\\s");
 			Vertex3D v1 = vertexs.get(Integer.parseInt(args[1]));
 			Vertex3D v2 = vertexs.get(Integer.parseInt(args[2]));
 			Vertex3D v3 = vertexs.get(Integer.parseInt(args[3]));
 			faces.add(new TriangleFace(v1,v2,v3));
 		}
-		in.close();
+		br.close();
 		return faces;
 	}
 	
 	public static void main(String[] args) throws IOException{
-		PLYParser test = new PLYParser(new File("/Users/kawabata/Dropbox/_Workspace/SoftwareEngineering2/src/se2/rabbit/bun_zipper.ply"));
+		PLYParser test = new PLYParser(new URL("https://raw.githubusercontent.com/softcoumobmob/softmob/master/res/bun_zipper.ply"));
 		float x_max = Float.MIN_VALUE;
 		float x_min = Float.MAX_VALUE;
 		float y_max = Float.MIN_VALUE;
