@@ -5,8 +5,8 @@ import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.util.List;
 
 import javax.swing.JFrame;
@@ -20,6 +20,13 @@ import com.jogamp.opengl.GLEventListener;
 import com.jogamp.opengl.awt.GLJPanel;
 import com.jogamp.opengl.util.Animator;
 
+/**
+ * スタンフォードバニーのサンプルというかテストというか。
+ * ＞＞＞このファイルはいずれ間違いなく廃棄されて適切に分割されるであろう＜＜＜
+ * 将来的にStanfordBunnyというクラス名はよそで使う可能性が濃厚なので、こっちはそのうち名称が変わると思います
+ * @author kawabata
+ *
+ */
 @SuppressWarnings("serial")
 public class StanfordBunny extends JFrame implements GLEventListener{
 
@@ -55,7 +62,7 @@ public class StanfordBunny extends JFrame implements GLEventListener{
 		animator = new Animator(panel);
 		animator.start();
 		
-		PLYParser parser = new PLYParser(new File("/Users/kawabata/Dropbox/_Workspace/SoftwareEngineering2/src/se2/rabbit/bun_zipper.ply"));
+		PLYParser parser = new PLYParser(new URL("https://raw.githubusercontent.com/softcoumobmob/softmob/master/res/bun_zipper.ply"));
 		triangles = parser.read();
 		
 		float x_max = Float.MIN_VALUE;
