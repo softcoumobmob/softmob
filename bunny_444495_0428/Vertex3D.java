@@ -1,5 +1,5 @@
 package se2.rabbit;
-
+//テステス
 public class Vertex3D {
 	private float[] coordinates = new float[3];
 	private float confidence;
