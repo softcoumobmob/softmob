@@ -18,7 +18,7 @@ public class BunnyControlListener extends ControlAdapter{
 	private Controllable view;
 	
 	/**
-	 * @param gel このコントローラリスナーから指令を受け取る描画担当オブジェクト
+	 * @param view このコントローラリスナーから指令を受け取る描画担当オブジェクト
 	 */
 	public BunnyControlListener(Controllable view){
 		this.view = view;

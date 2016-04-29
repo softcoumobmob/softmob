@@ -14,7 +14,7 @@ public interface Controllable {
 	 * 対象の拡大率を変更します。正の値を与えることで拡大し、負の値を与えることで縮小します。
 	 * 拡大率は実行時点の拡大率に加えられます。
 	 * つまり、expand(1.5f)してからexpand(-1.0f)することは、expand(0.5f)するのと同じ結果になるべきです。
-	 * @param scale
+	 * @param scale 拡大率
 	 */
 	public void expand(float scale);
 	
