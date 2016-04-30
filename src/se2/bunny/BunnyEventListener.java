@@ -4,8 +4,7 @@ import com.jogamp.opengl.GLAutoDrawable;
 import com.jogamp.opengl.GLEventListener;
 
 /**
- * BunnyEventListenerはGLEventListenerインターフェースとControllableインターフェースを両方実装する描画クラスです。
- * 前者を実装することでうさぎが表示できます。後者を実装することでマウスやキーボードでの操作があった時に表示を変えられます。
+ * BunnyEventListenerは{@code GLEventListener}インターフェースと{@code Controllable}インターフェースを両方実装する描画クラスです。前者を実装することでうさぎが表示できます。後者を実装することでマウスやキーボードでの操作があった時に表示を変えられます。
  * @author 担当者未定
  *
  */

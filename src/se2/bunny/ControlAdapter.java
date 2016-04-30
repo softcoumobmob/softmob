@@ -8,11 +8,9 @@ import java.awt.event.MouseMotionListener;
 
 /**
  * ControlAdapterはStanfordBunnyアプリケーションで用いるコントローラを作りやすくするためのアダプタとなる抽象クラスです。
- * 今回のアプリケーションにおいて必要ないと思われる（が、インターフェースの都合上実装しないといけない）メソッドを
- * 空メソッドの形で実装しています。
+ * 今回のアプリケーションにおいて必要ないと思われる（が、インターフェースの都合上実装しないといけない）メソッドを空メソッドの形で実装しています。
  * 
- * 具体的には、MouseListener#mousePressed, MouseMotionListener#mouseDragged, KeyListener#keyPressed, KeyListener#keyReleased
- * を'''除く'''メソッドは空メソッドであらかじめオーバーライドされています。
+ * 具体的には、{@code MouseListener#mousePressed}, {@code MouseMotionListener#mouseDragged}, {@code KeyListener#keyPressed}, {@code KeyListener#keyReleased}を<I>除く</I>メソッドは空メソッドであらかじめオーバーライドされています。
  * コントローラは、この抽象クラスを継承し、上記4つのメソッドを適切に実装することで完成します。
  * @author kawabata
  *
