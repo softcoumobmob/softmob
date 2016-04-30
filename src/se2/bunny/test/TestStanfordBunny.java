@@ -1,4 +1,4 @@
-package se2.bunny;
+package se2.bunny.test;
 
 import java.awt.EventQueue;
 import java.awt.event.WindowAdapter;
@@ -8,6 +8,8 @@ import javax.swing.JFrame;
 
 import com.jogamp.opengl.awt.GLJPanel;
 import com.jogamp.opengl.util.Animator;
+
+import se2.bunny.ControlAdapter;
 
 /**
  * テストモジュールです。

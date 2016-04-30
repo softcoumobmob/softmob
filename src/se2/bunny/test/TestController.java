@@ -1,7 +1,10 @@
-package se2.bunny;
+package se2.bunny.test;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
+
+import se2.bunny.ControlAdapter;
+import se2.bunny.Controllable;
 
 /**
  * 個人的なテストクラスです。''本番では一切使いません。''

@@ -1,10 +1,12 @@
-package se2.bunny;
+package se2.bunny.test;
 
 import com.jogamp.opengl.GL;
 import com.jogamp.opengl.GL2;
 import com.jogamp.opengl.GLAutoDrawable;
 import com.jogamp.opengl.GLEventListener;
 import com.jogamp.opengl.util.gl2.GLUT;
+
+import se2.bunny.Controllable;
 
 /**
  * 個人的なテストクラスです。''本番では一切使いません。''
