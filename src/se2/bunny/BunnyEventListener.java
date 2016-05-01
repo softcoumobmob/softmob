@@ -10,6 +10,11 @@ import com.jogamp.opengl.GLEventListener;
  */
 public class BunnyEventListener implements GLEventListener, Controllable{
 
+	/**
+	 * 描画する立体。
+	 */
+	private SolidFigure bunny;
+	
 	@Override
 	public void display(GLAutoDrawable drawable) {
 		// TODO Auto-generated method stub
