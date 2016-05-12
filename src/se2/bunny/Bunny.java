@@ -1,6 +1,6 @@
 package se2.bunny;
 
-import com.jogamp.opengl.GLAutoDrawable;
+import com.jogamp.opengl.GL2;
 
 /**
  * スタンフォードうさぎのモデルそのものです。利用側は{@code draw}メソッドを呼び出すだけで描画できるようにします。
@@ -14,7 +14,7 @@ public class Bunny extends SolidFigure{
 	PLYSource ply;
 
 	@Override
-	public void draw(GLAutoDrawable drawable) {
+	public void draw(GL2 gl2) {
 		// TODO Auto-generated method stub
 		
 	}
