@@ -5,15 +5,14 @@
               directory with the processing instruction <?eclipse.ant.import?>
               as the first entry and export the buildfile again. --><project basedir="." default="build" name="SoftwareEngineering2">
     <property environment="env"/>
-    <property name="ECLIPSE_HOME" value="../../../../../../Applications/Eclipse.app/Contents/Eclipse/"/>
     <property name="debuglevel" value="source,lines,vars"/>
     <property name="target" value="1.8"/>
     <property name="source" value="1.8"/>
     <path id="JOGL.userclasspath">
-        <pathelement location="../../externalLib/jogamp-all-platforms/jar/gluegen-rt.jar"/>
-        <pathelement location="../../externalLib/jogamp-all-platforms/jar/jogl-all.jar"/>
-        <pathelement location="../../externalLib/jogamp-all-platforms/jar/jogl-all-noawt.jar"/>
-        <pathelement location="../../externalLib/jogamp-all-platforms/jar/jocl.jar"/>
+        <pathelement location="../../外部ライブラリ/jogamp-all-platforms/jar/gluegen-rt.jar"/>
+        <pathelement location="../../外部ライブラリ/jogamp-all-platforms/jar/jogl-all.jar"/>
+        <pathelement location="../../外部ライブラリ/jogamp-all-platforms/jar/jogl-all-noawt.jar"/>
+        <pathelement location="../../外部ライブラリ/jogamp-all-platforms/jar/jocl.jar"/>
     </path>
     <path id="SoftwareEngineering2.classpath">
         <pathelement location="bin"/>
@@ -53,31 +52,8 @@
         </javac>
     </target>
     <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
-    <target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
-        <copy todir="${ant.library.dir}">
-            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
-        </copy>
-        <unzip dest="${ant.library.dir}">
-            <patternset includes="jdtCompilerAdapter.jar"/>
-            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
-        </unzip>
-    </target>
-    <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
-        <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
-        <antcall target="build"/>
-    </target>
-    <target name="PLYParser (1)">
-        <java classname="se2.rabbit.PLYParser" failonerror="true" fork="yes">
-            <classpath refid="SoftwareEngineering2.classpath"/>
-        </java>
-    </target>
     <target name="PLYParser">
         <java classname="se2.rabbit.PLYParser" failonerror="true" fork="yes">
-            <classpath refid="SoftwareEngineering2.classpath"/>
-        </java>
-    </target>
-    <target name="StanfordBunny (1)">
-        <java classname="se2.rabbit.StanfordBunny" failonerror="true" fork="yes">
             <classpath refid="SoftwareEngineering2.classpath"/>
         </java>
     </target>
@@ -86,8 +62,18 @@
             <classpath refid="SoftwareEngineering2.classpath"/>
         </java>
     </target>
+    <target name="StanfordBunny (1)">
+        <java classname="se2.rabbit.StanfordBunny" failonerror="true" fork="yes">
+            <classpath refid="SoftwareEngineering2.classpath"/>
+        </java>
+    </target>
+    <target name="PLYParser (1)">
+        <java classname="se2.rabbit.PLYParser" failonerror="true" fork="yes">
+            <classpath refid="SoftwareEngineering2.classpath"/>
+        </java>
+    </target>
     <target name="TestStanfordBunny">
-        <java classname="se2.bunny.test.TestStanfordBunny" failonerror="true" fork="yes">
+        <java classname="se2.bunny.TestStanfordBunny" failonerror="true" fork="yes">
             <classpath refid="SoftwareEngineering2.classpath"/>
         </java>
     </target>
